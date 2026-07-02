@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=360" />
+  <title>Tokenz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 360px;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #08080c;
+      color: #f4f4f8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .shell {
+      padding: 20px;
+      background:
+        radial-gradient(ellipse 120% 80% at 100% -20%, rgba(124, 140, 255, 0.18), transparent 50%),
+        radial-gradient(ellipse 80% 60% at -10% 100%, rgba(180, 140, 255, 0.12), transparent 45%),
+        #08080c;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .header {
+      padding: 20px 20px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; }
+
+    .logo {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: linear-gradient(145deg, #7c8cff, #b48cff);
+      display: grid; place-items: center;
+      box-shadow: 0 8px 20px rgba(124, 140, 255, 0.35);
+    }
+    .logo svg { width: 20px; height: 20px; }
+
+    .brand h1 {
+      font-size: 17px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.2;
+    }
+    .brand p {
+      font-size: 11.5px; color: rgba(255,255,255,0.45); margin-top: 2px; font-weight: 400;
+    }
+
+    .toggle-wrap {
+      display: flex; align-items: center; gap: 8px;
+    }
+    .toggle-label {
+      font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.5);
+    }
+    .toggle {
+      position: relative; width: 44px; height: 26px; flex-shrink: 0;
+    }
+    .toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
+    .toggle-track {
+      position: absolute; inset: 0; border-radius: 99px; cursor: pointer;
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.08);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .toggle-track::after {
+      content: ''; position: absolute; top: 3px; left: 3px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .toggle input:checked + .toggle-track {
+      background: linear-gradient(145deg, #7c8cff, #9a7cff);
+      border-color: transparent;
+    }
+    .toggle input:checked + .toggle-track::after { transform: translateX(18px); }
+
+    .body { padding: 16px 20px 20px; }
+
+    .feature-list {
+      list-style: none; margin-bottom: 18px;
+    }
+    .feature-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 12px; line-height: 1.5; color: rgba(255,255,255,0.7);
+      padding: 6px 0;
+    }
+    .feature-list li::before {
+      content: ''; width: 5px; height: 5px; border-radius: 50%; margin-top: 7px; flex-shrink: 0;
+      background: linear-gradient(145deg, #7c8cff, #b48cff);
+    }
+
+    .field { margin-bottom: 4px; }
+    .field label {
+      display: block; font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.4); margin-bottom: 8px;
+    }
+    .field input {
+      width: 100%; padding: 11px 13px; border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(0,0,0,0.35); color: #fff;
+      font: 13px/1.4 'Inter', sans-serif; outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .field input::placeholder { color: rgba(255,255,255,0.28); }
+    .field input:focus {
+      border-color: rgba(124, 140, 255, 0.5);
+      box-shadow: 0 0 0 3px rgba(124, 140, 255, 0.12);
+    }
+    .field-hint {
+      font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 7px; line-height: 1.45;
+    }
+
+    .footer {
+      padding: 12px 20px 16px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .status-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45);
+    }
+    .status-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #48c78e; box-shadow: 0 0 8px rgba(72, 199, 142, 0.6);
+    }
+    .status-pill.off .status-dot {
+      background: rgba(255,255,255,0.25); box-shadow: none;
+    }
+    .version { font-size: 10px; color: rgba(255,255,255,0.25); font-weight: 500; }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="card">
+      <div class="header">
+        <div class="brand">
+          <div class="logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+              <path d="M7 8h10M7 12h7M6 4h8l4 4v12a1 1 0 01-1 1H6a1 1 0 01-1-1V5a1 1 0 011-1z"/>
+            </svg>
+          </div>
+          <div>
+            <h1>Tokenz</h1>
+            <p>Documents into your AI chat</p>
+          </div>
+        </div>
+        <div class="toggle-wrap">
+          <span class="toggle-label" id="toggleLabel">On</span>
+          <label class="toggle" title="Enable or disable Tokenz">
+            <input type="checkbox" id="enabled" checked />
+            <span class="toggle-track"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="body">
+        <ul class="feature-list">
+          <li>Drop your files on ChatGPT or Claude</li>
+          <li>Helps reduce token usage and allows adding multiple files without limits</li>
+        </ul>
+
+        <div class="field">
+          <label for="ocrApiKey">OCR API key</label>
+          <input type="password" id="ocrApiKey" placeholder="Optional — for scanned PDFs" autocomplete="off" />
+          <p class="field-hint">Leave blank to use the free OCR.space tier. Get a key at ocr.space if you need higher limits.</p>
+        </div>
+      </div>
+
+      <div class="footer">
+        <span class="status-pill" id="statusPill"><span class="status-dot"></span><span id="statusText">Active</span></span>
+        <span class="version">v0.4.0</span>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="../dist/popup/popup.js"></script>
+</body>
+</html>
