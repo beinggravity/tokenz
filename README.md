@@ -5,7 +5,6 @@
 
 <br/>
 
-https://github.com/user-attachments/assets/c098d5b3-3c1c-4975-84c4-c7eb17ae0888
 
 [![License](https://img.shields.io/badge/License-MIT-4ac6a8?style=flat-square)](./LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Chrome%20%7C%20Chromium-4a8cf7?style=flat-square)](https://chrome.google.com/webstore)
@@ -90,6 +89,8 @@ Drop something bigger — a full book chapter, a long research paper, a 200-page
 You drop the file once and walk away; Tokenz handles the back-and-forth. It also watches the model's in-between replies — if one runs unexpectedly long instead of a short acknowledgment, you get a warning that it's eating into the context budget the whole process is trying to protect.
 
 ## Install
+
+https://github.com/user-attachments/assets/c098d5b3-3c1c-4975-84c4-c7eb17ae0888
 
 Tokenz isn't published to the Chrome Web Store yet, so it's installed as an unpacked extension:
 
