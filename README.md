@@ -16,6 +16,23 @@
 
 ---
 
+## Table of Contents
+ 
+- [What is Tokenz?](#what-is-tokenz)
+- [Why use it instead of just uploading the file?](#why-use-it-instead-of-just-uploading-the-file)
+- [Quick look](#quick-look)
+- [Features](#features)
+- [Supported files](#supported-files)
+- [Handling large documents](#handling-large-documents)
+- [Install](#install)
+- [Settings](#settings)
+- [Permissions](#permissions)
+- [Privacy](#privacy)
+- [Development](#development)
+- [License](#license)
+
+---
+
 ## What is Tokenz?
 
 Tokenz is a Chrome extension for two websites: **ChatGPT** and **Claude**. It adds one capability neither of them has by default — the ability to drag a document straight onto the chat and have its text land in your message box, ready to send.
