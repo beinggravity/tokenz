@@ -90,7 +90,7 @@ You drop the file once and walk away; Tokenz handles the back-and-forth. It also
 
 ## Install
 
-https://github.com/user-attachments/assets/c098d5b3-3c1c-4975-84c4-c7eb17ae0888
+https://github.com/user-attachments/assets/853185d8-ec9c-4180-b8df-da28e34316fb
 
 Tokenz isn't published to the Chrome Web Store yet, so it's installed as an unpacked extension:
 
