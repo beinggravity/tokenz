@@ -5,6 +5,7 @@
 
 <br/>
 
+https://github.com/user-attachments/assets/4578280d-5972-4bb7-8e48-f9c2e263c08d
 
 [![License](https://img.shields.io/badge/License-MIT-4ac6a8?style=flat-square)](./LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Chrome%20%7C%20Chromium-4a8cf7?style=flat-square)](https://chrome.google.com/webstore)
