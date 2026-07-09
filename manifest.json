@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "Tokenz",
+  "version": "1.0.0",
+  "description": "Drop files on AI chat — Tokenz extracts text locally and places it in your message box.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://www.chatgpt.com/*",
+    "https://*.chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://claude.ai/*",
+    "https://www.claude.ai/*",
+    "https://api.ocr.space/*"
+  ],
+  "background": {
+    "service_worker": "dist/background/service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chatgpt.com/*", "https://www.chatgpt.com/*", "https://*.chatgpt.com/*", "https://chat.openai.com/*"],
+      "js": ["dist/content/page-intercept.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://chatgpt.com/*", "https://www.chatgpt.com/*", "https://*.chatgpt.com/*", "https://chat.openai.com/*"],
+      "js": ["dist/content/bootstrap.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://claude.ai/*", "https://www.claude.ai/*"],
+      "js": ["dist/content/page-intercept.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://claude.ai/*", "https://www.claude.ai/*"],
+      "js": ["dist/content/bootstrap.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Tokenz",
+    "default_icon": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+  },
+  "icons": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "web_accessible_resources": [{
+    "resources": ["dist/pdf.worker.min.mjs"],
+    "matches": ["https://chatgpt.com/*", "https://chat.openai.com/*", "https://claude.ai/*"]
+  }]
+}
