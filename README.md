@@ -109,6 +109,12 @@ That's the whole interaction for a normal-sized document. For something too big 
 | `.html` / `.htm` | Converted to clean Markdown. |
 | `.txt` | Used as-is. |
 | `.md` | Used as-is. |
+| `.js`, `.jsx`, `.ts`, `.tsx`, `.py`, `.java`, `.c`, `.cpp`, `.h`, `.hpp`, `.cs`, `.go`, `.rs`, `.rb`, `.php`, `.swift`, `.kt`, `.m`, `.mm`, `.sh`, `.bat`, `.ps1` | Source code files — used as plain text. |
+| `.css`, `.scss`, `.less` | Stylesheets — used as plain text. |
+| `.json`, `.yaml`, `.yml`, `.xml`, `.csv`, `.ini`, `.toml`, `.env` | Structured/config data — used as plain text. |
+| `.vue`, `.svelte`, `.astro` | Frontend component files — used as plain text. |
+| `.graphql`, `.gql` | GraphQL schema/query files — used as plain text. |
+| `.sql` | SQL files — used as plain text. |
 
 Anything else is rejected with a clear message rather than silently mishandled. Standalone images aren't a supported drop target on their own.
 
